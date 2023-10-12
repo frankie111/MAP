@@ -83,8 +83,9 @@ public class ArrMath {
 
     /**
      * Computes the quotient of an array-represented number and a single digit integer
+     *
      * @param arr an array of single digit integers representing a number
-     * @param nr a single digit integer
+     * @param nr  a single digit integer
      * @return an array representing the product of arr and nr
      */
     public static int[] arrDiv(int[] arr, int nr) {

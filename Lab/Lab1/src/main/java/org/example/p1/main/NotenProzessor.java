@@ -21,6 +21,14 @@ public class NotenProzessor {
         return finaleNoten;
     }
 
+    public int average(int[] note) {
+        int sum = 0;
+        for (int n : note)
+            sum += n;
+
+        return sum / note.length;
+    }
+
     public int round(int note) {
         if (note < 38) {
             return note;
