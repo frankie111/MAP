@@ -64,7 +64,7 @@ public class ArrMath {
      */
     public static int[] arrMul(int[] arr, int nr) {
         if (nr > 9 || nr < 0)
-            throw new IllegalArgumentException("Nr must be a single digit");
+            throw new IllegalArgumentException("Nr must be a single digit integer");
 
         if (arr == null || arr.length == 0)
             throw new IllegalArgumentException("Array must not be null or empty");
