@@ -1,7 +1,13 @@
 package org.example.p2;
 
 public class MinMax {
+    /**
+     * Finds the minimum number in arr
+     */
     public static int minNr(int[] arr) {
+        if (arr == null || arr.length == 0)
+            throw new IllegalArgumentException("Array must not be null or empty");
+
         int min = arr[0];
         for (int i = 1; i < arr.length; i++)
             if (arr[i] < min)
@@ -10,7 +16,13 @@ public class MinMax {
         return min;
     }
 
+    /**
+     * Finds the maximum number in arr
+     */
     public static int maxNr(int[] arr) {
+        if (arr == null || arr.length == 0)
+            throw new IllegalArgumentException("Array must not be null or empty");
+
         int max = arr[0];
         for (int i = 1; i < arr.length; i++)
             if (arr[i] > max)
@@ -20,9 +32,12 @@ public class MinMax {
     }
 
     /**
-     * Find the minimum Sum of len-1 elements in arr
+     * Finds the minimum Sum of len-1 elements in arr
      */
     public static int minSum(int[] arr) {
+        if (arr == null || arr.length == 0)
+            throw new IllegalArgumentException("Array must not be null or empty");
+
         int max = maxNr(arr);
         int sum = 0;
 
@@ -34,9 +49,12 @@ public class MinMax {
     }
 
     /**
-     * Find the maximum Sum of len-1 elements in arr
+     * Finds the maximum Sum of len-1 elements in arr
      */
     public static int maxSum(int[] arr) {
+        if (arr == null || arr.length == 0)
+            throw new IllegalArgumentException("Array must not be null or empty");
+
         int min = minNr(arr);
         int sum = 0;
 
