@@ -54,9 +54,10 @@ public class NotenProzessor {
         int maxRoundedGrade = Integer.MIN_VALUE;
 
         for (int grade : grades) {
-            // Check if the grade should be rounded and track the maximum rounded grade
-            int roundedGrade = (grade < 38 || grade % 5 < 3) ? grade : grade + (5 - grade % 5);
-            maxRoundedGrade = Math.max(maxRoundedGrade, roundedGrade);
+            if (grade >= 38 && grade % 5 >= 3){
+                grade = grade + (5 - grade % 5);
+                maxRoundedGrade = Math.max(maxRoundedGrade, grade);
+            }
         }
 
         return maxRoundedGrade;
