@@ -1,4 +1,6 @@
-package com.example.main;
+package org.example.p1.main;
+
+import org.example.p1.main.NotenProzessor;
 
 import java.util.Arrays;
 

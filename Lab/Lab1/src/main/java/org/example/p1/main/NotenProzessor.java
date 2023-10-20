@@ -1,53 +1,65 @@
-package com.example.main;
+package org.example.p1.main;
+
+import java.util.Arrays;
 
 public class NotenProzessor {
 
-    public int[] nichtAusreichendeNoten(int[] note) {
+    /**
+     * returns failing grades
+     */
+    public static int[] nichtAusreichendeNoten(int[] noten) {
 
-        for (int i = 0; i < note.length; i++) {
-            if (note[i] < 0 || note[i] > 100) {
-                System.out.println("Noten soll zwischen 0 und 100 sein.");
-                return null;
-            }
-        }
+        if (noten == null || noten.length == 0)
+            throw new IllegalArgumentException("Array must be non-null and non-empty");
 
-        int[] finaleNoten = new int[0];
-
-        for (int i = 0; i < note.length; i++) {
-            if (round(note[i]) >= 40) {
-                finaleNoten = addToArray(finaleNoten, round(note[i]));
-            }
-        }
-        return finaleNoten;
+        return Arrays.stream(noten).
+                filter(n -> n < 40)
+                .toArray();
     }
 
-    public int average(int[] note) {
-        int sum = 0;
-        for (int n : note)
+    /**
+     * returns the average grade
+     */
+    public static double average(int[] noten) {
+        if (noten == null || noten.length == 0)
+            throw new IllegalArgumentException("Array must be non-null and non-empty");
+
+        double sum = 0;
+        for (int n : noten)
             sum += n;
 
-        return sum / note.length;
+        return sum / noten.length;
     }
 
-    public int round(int note) {
-        if (note < 38) {
-            return note;
-        } else {
-            if (note % 5 > 2) {
-                return note + 5 - note % 5;
-            } else {
-                return note;
-            }
-        }
+
+    /**
+     * returns the rounded grades
+     */
+    public static int[] roundedGrades(int[] noten) {
+        if (noten == null || noten.length == 0)
+            throw new IllegalArgumentException("Array must be non-null and non-empty");
+
+        return Arrays.stream(noten)
+                .map(grade -> (grade < 38 || grade % 5 < 3) ? grade : grade + (5 - grade % 5))
+                .toArray();
     }
 
-    public int[] addToArray(int[] original, int newElement) {
-        int[] result = new int[original.length + 1];
-        for (int i = 0; i < original.length; i++) {
-            result[i] = original[i];
+    /**
+     * return the maximum rounded grade
+     */
+    public static int getMaxRoundedGrade(int[] grades) {
+        if (grades == null || grades.length == 0)
+            throw new IllegalArgumentException("Array must be non-null and non-empty");
+
+        int maxRoundedGrade = Integer.MIN_VALUE;
+
+        for (int grade : grades) {
+            // Check if the grade should be rounded and track the maximum rounded grade
+            int roundedGrade = (grade < 38 || grade % 5 < 3) ? grade : grade + (5 - grade % 5);
+            maxRoundedGrade = Math.max(maxRoundedGrade, roundedGrade);
         }
-        result[original.length] = newElement;
-        return result;
+
+        return maxRoundedGrade;
     }
 
 }
