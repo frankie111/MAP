@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class NotenProzessor {
 
+
     /**
      * returns failing grades
      */
@@ -12,10 +13,24 @@ public class NotenProzessor {
         if (noten == null || noten.length == 0)
             throw new IllegalArgumentException("Array must be non-null and non-empty");
 
-        return Arrays.stream(noten).
-                filter(n -> n < 40)
-                .toArray();
+        int failCount = 0;
+        for (int note : noten) {
+            if (note < 40) {
+                failCount++;
+            }
+        }
+
+        int[] result = new int[failCount];
+        int index = 0;
+        for (int note : noten) {
+            if (note < 40) {
+                result[index++] = note;
+            }
+        }
+
+        return result;
     }
+
 
     /**
      * returns the average grade
@@ -39,10 +54,19 @@ public class NotenProzessor {
         if (noten == null || noten.length == 0)
             throw new IllegalArgumentException("Array must be non-null and non-empty");
 
-        return Arrays.stream(noten)
-                .map(grade -> (grade < 38 || grade % 5 < 3) ? grade : grade + (5 - grade % 5))
-                .toArray();
+        int[] rounded = new int[noten.length];
+        for (int i = 0; i < noten.length; i++) {
+            int grade = noten[i];
+            if (grade < 38 || grade % 5 < 3) {
+                rounded[i] = grade;
+            } else {
+                rounded[i] = grade + (5 - grade % 5);
+            }
+        }
+
+        return rounded;
     }
+
 
     /**
      * return the maximum rounded grade
