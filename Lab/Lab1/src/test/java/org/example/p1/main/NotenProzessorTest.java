@@ -15,9 +15,11 @@ class NotenProzessorTest {
         int[] expected = {25, 39, 12};
 
         assertArrayEquals(expected, result);
+    }
 
+    @Test
+    void nichtAusreichendeNotenError() {
         int[] emptyNoten = {};
-
         assertThrows(IllegalArgumentException.class, () -> NotenProzessor.nichtAusreichendeNoten(emptyNoten), "Array must be non-null");
     }
 
@@ -28,7 +30,10 @@ class NotenProzessorTest {
         double result = NotenProzessor.average(noten);
 
         assert expected == result : SHOULD_BE_EQUAL;
+    }
 
+    @Test
+    void averageError() {
         int[] emptyNoten = {};
         assertThrows(IllegalArgumentException.class, () -> NotenProzessor.average(emptyNoten), "Array must be non-null and non-empty");
     }
@@ -40,7 +45,10 @@ class NotenProzessorTest {
         int[] result = NotenProzessor.roundedGrades(noten);
 
         assertArrayEquals(expected, result);
+    }
 
+    @Test
+    void roundedGradesError() {
         int[] emptyGrades = {};
         assertThrows(IllegalArgumentException.class, () -> NotenProzessor.roundedGrades(emptyGrades), "Array must be non-null and non-empty");
     }
@@ -51,7 +59,10 @@ class NotenProzessorTest {
         int expected = 75;
 
         assert expected == NotenProzessor.getMaxRoundedGrade(noten) : SHOULD_BE_EQUAL;
+    }
 
+    @Test
+    void getMaxRoundedGradeError() {
         int[] emptyGrades = {};
         assertThrows(IllegalArgumentException.class, () -> NotenProzessor.getMaxRoundedGrade(emptyGrades), "Array must be non-null and non-empty");
     }

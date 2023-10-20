@@ -17,7 +17,10 @@ class ArrMathTest {
         int[] expected = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         assert Arrays.equals(expected, ArrMath.arrSum(a, b)) : SHOULD_BE_EQUAL;
+    }
 
+    @Test
+    void arrSumError() {
         int[] c = {1, 3, 0, 0, 0, 0, 0};
         int[] d = {8, 7, 0, 0, 0, 0, 0, 0, 0};
 
@@ -31,7 +34,10 @@ class ArrMathTest {
         int[] expected = {2, 9, 0, 0, 0, 0, 0, 0, 0, 0};
 
         assert Arrays.equals(expected, ArrMath.arrDiff(a, b)) : SHOULD_BE_EQUAL;
+    }
 
+    @Test
+    void arrDiffError() {
         int[] c = {1, 3, 0, 0, 0, 0, 0};
         int[] d = {8, 7, 0, 0, 0, 0, 0, 0, 0};
 
@@ -44,7 +50,11 @@ class ArrMathTest {
         int[] expected = {4, 7, 2, 0, 0, 0, 0, 0, 0, 0};
 
         assert Arrays.equals(expected, ArrMath.arrMul(a, 2)) : SHOULD_BE_EQUAL;
+    }
 
+    @Test
+    void arrMulError() {
+        int[] a = {2, 3, 6, 0, 0, 0, 0, 0, 0, 0};
         int[] b = {};
         assertThrows(IllegalArgumentException.class, () -> ArrMath.arrMul(b, 2), "Array must not be null or empty");
         assertThrows(IllegalArgumentException.class, () -> ArrMath.arrMul(a, 10), "Nr must be a single digit integer");
@@ -56,7 +66,11 @@ class ArrMathTest {
         int[] expected = {1, 1, 8, 0, 0, 0, 0, 0, 0, 0};
 
         assert Arrays.equals(expected, ArrMath.arrDiv(a, 2)) : SHOULD_BE_EQUAL;
+    }
 
+    @Test
+    void arrDivError() {
+        int[] a = {2, 3, 6, 0, 0, 0, 0, 0, 0, 0};
         int[] b = {};
         assertThrows(IllegalArgumentException.class, () -> ArrMath.arrDiv(b, 2), "Array must not be null or empty");
         assertThrows(IllegalArgumentException.class, () -> ArrMath.arrDiv(a, 10), "Nr must be a single digit integer");
