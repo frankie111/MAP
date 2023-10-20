@@ -14,7 +14,7 @@ public class EShop {
      */
     public int getCheapestKeyboard() {
         if (keyboards.length == 0)
-            return -1;
+            throw new IllegalArgumentException("Array must be non-null and non-empty");
 
         int min = Integer.MAX_VALUE;
         for (int k : keyboards)
@@ -28,6 +28,9 @@ public class EShop {
      * @return the most expensive item in the Shop or -1 if the shop is empty
      */
     public int getMostExpensiveItem() {
+        if (keyboards.length == 0 && drives.length == 0)
+            throw new IllegalArgumentException("Array must be non-null and non-empty");
+
         int max = -1;
         for (int k : keyboards)
             if (k > max)
@@ -44,8 +47,10 @@ public class EShop {
      * @return the most expensive drive in the buyers budget or -1 if non-existent
      */
     public int getBestDriveInBudget(int budget) {
-        int max = -1;
+        if (drives.length == 0)
+            throw new IllegalArgumentException("Array must be non-null and non-empty");
 
+        int max = -1;
         for (int d : drives)
             if (d > max && d <= budget)
                 max = d;
@@ -57,8 +62,10 @@ public class EShop {
      * @return the most expensive tuple of a keyboard and a drive that fits in the buyers budget or -1 if no viable set exists
      */
     public int getMostExpensiveSetInBudget(int budget) {
-        int maxSpend = -1;
+        if (keyboards.length == 0 || drives.length == 0)
+            throw new IllegalArgumentException("Array must be non-null and non-empty");
 
+        int maxSpend = -1;
         for (int k : keyboards) {
             for (int d : drives) {
                 int totalCost = k + d;
