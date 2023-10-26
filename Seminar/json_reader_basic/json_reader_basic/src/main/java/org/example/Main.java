@@ -43,7 +43,7 @@ public class Main {
 //        System.out.println(tv);
 
         try {
-            StudentParser parser = new StudentParser();
+            JsonStudentParser parser = JsonStudentParser.getInstance();
             List<Student> students = parser.parse("data.json");
 
 //            System.out.println(students);
@@ -55,3 +55,4 @@ public class Main {
 
     }
 }
+

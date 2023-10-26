@@ -9,7 +9,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentParser {
+public class JsonStudentParser {
+    private static JsonStudentParser instance = null;
+
+    private JsonStudentParser() {
+
+    }
+
+    public static JsonStudentParser getInstance() {
+        if (instance == null)
+            instance = new JsonStudentParser();
+
+        return instance;
+    }
+
     public List<Student> parse(String fileName) throws IOException {
         List<Student> students = new ArrayList<>();
 
@@ -19,7 +32,7 @@ public class StudentParser {
 
         JsonNode root = mapper.readTree(bufferedReader);
 
-        for (JsonNode studentNode: root.path("students")) {
+        for (JsonNode studentNode : root.path("students")) {
             Student student = new Student();
             Address address = new Address();
 
