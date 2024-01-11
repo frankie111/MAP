@@ -3,24 +3,17 @@ package ub2;
 import java.util.List;
 
 public class City {
+
     private String name;
     private String country;
-    List<Temperature> temperaturesList;
 
-    public City(String name, String country, List<Temperature> temperaturesList) {
+    List<Temperatures> temperaturesList;
+
+
+    public City(String name, String country, List<Temperatures> temperaturesList) {
         this.name = name;
         this.country = country;
         this.temperaturesList = temperaturesList;
-    }
-
-    public void addTemperature(String cityName, Temperature temp) {
-        for (City c : cities) {
-            if (c.getName().equals(cityName)) {
-                for(Temperature temperature: temp)
-            }
-        }
-
-        temperaturesList.add(temp);
     }
 
     public String getName() {
@@ -39,11 +32,15 @@ public class City {
         this.country = country;
     }
 
-    public List<Temperature> getTemperaturesList() {
+    public List<Temperatures> getTemperaturesList() {
         return temperaturesList;
     }
 
-    public void setTemperaturesList(List<Temperature> temperaturesList) {
+    public void setTemperaturesList(List<Temperatures> temperaturesList) {
         this.temperaturesList = temperaturesList;
+    }
+
+    public void addTemperature(Temperatures temp) {
+        this.temperaturesList.add(temp);
     }
 }

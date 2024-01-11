@@ -1,3 +1,5 @@
+package ub1;
+
 import ub1.Country;
 import ub1.CountryFileReader;
 

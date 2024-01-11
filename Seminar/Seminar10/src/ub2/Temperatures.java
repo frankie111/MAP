@@ -1,11 +1,12 @@
 package ub2;
 
-public class Temperature {
+public class Temperatures {
+
     private double value;
     private String unit;
-    private Integer month;
+    private int month;
 
-    public Temperature(double value, String unit, Integer month) {
+    public Temperatures(double value, String unit, Integer month) {
         this.value = value;
         this.unit = unit;
         this.month = month;
@@ -27,7 +28,7 @@ public class Temperature {
         this.unit = unit;
     }
 
-    public Integer getMonth() {
+    public int getMonth() {
         return month;
     }
 
