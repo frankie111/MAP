@@ -1,3 +1,7 @@
+package io;
+
+import entities.Animal;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -44,6 +48,7 @@ public class AnimalUtils {
         animals.stream()
                 .filter(animal -> Objects.equals(animal.getHealthStatus(), "sick"))
                 .map(Animal::getName)
+                .filter(name -> Character.isUpperCase(name.charAt(0)))
                 .forEach(animal -> {
                     try {
                         bw.write(animal + ",");
@@ -54,3 +59,5 @@ public class AnimalUtils {
         bw.close();
     }
 }
+
+// Singleton, Strategy, Proxy, Adapter, Factory, Builder, Observer
