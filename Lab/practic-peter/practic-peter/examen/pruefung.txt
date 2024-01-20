@@ -1,0 +1,76 @@
+1p Identifizieren Sie jede Verantwortung und jedes Anliegen Ihrer Lösung korrekt und platzieren Sie sie in Komponenten, die sie umfassen.
+
+Entwickeln Sie ein System zur Verwaltung des Menüs und der Bestellungen eines Restaurants.
+Sie finden in die Datei namens "menu_items.csv" mit den Spalten: "item_id", "name", "category", "price" und "availability" alle Gerichte.
+Die Spalten sind durch das "-"-Zeichen getrennt.
+
+A. 2p Lesen Sie den Inhalt der Datei "menu_items.csv" und wandeln Sie jede Zeile in ein Java-Objekt um, indem Sie es entsprechend modellieren.
+Erstellen Sie eine Klasse, die definiert, wie ein Eintrag aus der Datei als Objekt aussehen sollte.
+Das Ergebnis sollte vom Typ: ArrayList<MenuItem> sein.
+B. 1p Verwenden Sie Java-Streams, um auf dem Bildschirm die Kategorien und die Anzahl der verfügbaren Artikel in jeder Kategorie anzuzeigen,
+    absteigend sortiert nach der Anzahl.
+C. 2p Verwenden Sie Java-Streams und die entsprechende .map()-Methode, um in eine Datei namens "unavailable_items.txt"
+    die Länge der Namen von Artikeln mit dem Status "false" zu speichern.
+D. 1p Verwenden Sie ein Designmuster, um eine Klasse namens "Kitchen" zu erstellen, die mindestens zwei vordefinierte MenuItems zubereiten kann.
+    Hinterlassen Sie einen Kommentar mit dem Namen des verwendeten Designmusters.
+E. 1p Bereiten Sie einen Test vor, um die Umsetzung von "D" zu garantieren.
+F. 1p Definieren Sie zwei Threads, die die Liste der Menüpunkte verwenden. Der erste Thread wird als Kunde agieren und der zweite als Koch.
+    Der Kunde wird drei Bestellungen des Typs "MenuItem" mit einer Verzögerung von 1 Sekunde zwischen ihnen aufgeben.
+    Sobald die 3 Bestellungen aufgegeben sind, wird der Koch die Artikel "zubereiten".
+    Alle Aktionen der Threads müssen auf dem Bildschirm angezeigt werden.
+    Beide Threads werden gleichzeitig gestartet.
+Beispiel-Ausgabe:
+Kunde: Bestellung aufgeben und 1 Sekunde warten
+Kunde: Bestellung aufgeben und 1 Sekunde warten
+Kunde: Bestellung aufgeben und 1 Sekunde warten
+Koch: Bereitet Bestellungen vor!
+Kunde: Bestellung aufgeben und 1 Sekunde warten
+Kunde: Bestellung aufgeben und 1 Sekunde warten
+Kunde: Bestellung aufgeben und 1 Sekunde warten
+Koch: Bereitet Bestellungen vor!
+.
+.
+.
+etc
+1p von Amts wegen Punkt
+
+
+#############################################################################################################################################################
+
+1p Correctly identify each responsibility and concern of your solution and place them in components which encapsulate them.
+
+Develop a system for managing a restaurant's menu and orders. You’ll find the menu items in the file called “menu_items.csv"
+with columns: "item_id," "name," "category," "price," and "availability."
+The columns are separated by the "-" character.
+
+A. 2p Read the contents of the "menu_items.csv" file and convert each line into a Java object, modeling it accordingly.
+Create a class that defines how an entry from the file should look like as an object.
+The result should be of type: ArrayList<MenuItem>.
+B. 1p Using Java streams, display on the screen the categories and the number of items available in each category,
+sorted descending based on the count.
+C. 2p Using Java streams and their respective .map() method, save to a file called "unavailable_items.txt",
+ the length of the names of items with availability set to "false."
+D. 1p Using a design pattern, create a class called “Kitchen” which can prepare at least two predefined MenuItems.
+Leave a comment containing the name of the design pattern which you used.
+E. 1p Prepare a test to guarantee the implementation from "D."
+F. 1p Define two threads that use the list of menu items. The first thread will act as a customer and the second one as a chef.
+The customer will place 3 orders of type “MenuItem” with a delay of 1 second between them. Once the 3 orders are placed,
+the chef will “prepare” the items. All actions of the threads need to be displayed on the screen.
+Both threads will be start concurrently.
+
+	Example output:
+	CustomerThread: Placing order and waiting 1 second
+	CustomerThread: Placing order and waiting 1 second
+	CustomerThread: Placing order and waiting 1 second
+	ChefThread: Preparing orders!
+	CustomerThread: Placing order and waiting 1 second
+	CustomerThread: Placing order and waiting 1 second
+	CustomerThread: Placing order and waiting 1 second
+	ChefThread: Preparing orders!
+	.
+	.
+	.
+	etc
+
+1p ex-officio point
+
