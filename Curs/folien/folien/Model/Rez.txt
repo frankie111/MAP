@@ -1,0 +1,25 @@
+1.A Throwable
+	-Checked Exceptions:
+		try{
+			BufferedReader br = new BufferedReader(new FileReader("InvalidPath.txt"));
+			String line = br.readLine();
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+
+	-Unchecked Exceptions - Runtime Exceptions:
+		try{
+			String str = null;
+			int len = str.length();
+		} catch(NullPointerException e){
+			e.printStackTrace();
+		}
+
+1.B
+	Das funktioniert weil die Vererbung in Java nach der Model Unterklasse "is a" Basisklasse funktioniert. Das bedeutet, dass eine Unterklasse alle Funktionalitaten und Attribute der Basisklasse enthalt. =Polymorphismus
+
+2.A
+	Thread ist eine Klasse, wahrend Runnable ein Interface ist. Runnable ist mehr flexibel, denn man kann sowohl die Interface implementieren als auch eine andere Klasse erweitern, was fur Thread nicht moglich ware. Außerdem kann man denselben Runnable in mehrere Threads benutzen.
+
+2.B
+	
